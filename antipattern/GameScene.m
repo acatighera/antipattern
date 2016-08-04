@@ -35,9 +35,10 @@
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     [self setBackgroundColor:[UIColor blackColor]];
+    self.map = [[APNodeMap alloc] init];
+    [self.map spawnRandom];
     [self createGridWithCellSize:5];
     self.size = view.bounds.size;
-    self.map = [[APNodeMap alloc] init];
 }
 
 -(void)createGridWithCellSize:(uint8_t)cellSize {
@@ -64,6 +65,7 @@
     self.grid.path = path;
     [self.grid setStrokeColor:[SKColor colorWithRed:1.0f green:0.3f blue:0.3f alpha:0.6f]];
     [self addChild:self.grid];
+    [self drawMap];
     
 }
 

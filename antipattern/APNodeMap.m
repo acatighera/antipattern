@@ -17,7 +17,7 @@
 -(void)spawnRandom {
     for (int i = 0; i < APGRID_WIDTH; i++) {
         for (int j = 0; j < APGRID_HEIGHT; j++) {
-            if (arc4random_uniform(2) == 0) {
+            if (arc4random_uniform(4) == 0) {
                 [self insertNodeAtPos:CGPointMake(i, j)];
             }
         }
@@ -47,14 +47,6 @@
 }
 
 -(void)evolve {
-    [self evolve:1];
-    [self evolve:2];
-    [self evolve:3];
-    [self evolve:4];
-}
-
-
--(void)evolve:(int)phase {
     NSMutableDictionary *newNodes = [NSMutableDictionary dictionary];
     bool evolvedMap[APGRID_WIDTH][APGRID_HEIGHT];
     [self overwriteMap:evolvedMap withMap:_map];
@@ -66,7 +58,7 @@
             CGPoint neighborPt = [neighborVal CGPointValue];
             if (_map[(int)neighborPt.x][(int)neighborPt.y]) {
                 aliveCount++;
-            } else if (phase == 4){
+            } else {
                 bool shouldRevive = [self shouldReviveNodeAt:neighborPt];
                 if (shouldRevive) {
                     NSString *neighborKey = [self keyForCGPoint:neighborPt];
@@ -74,10 +66,9 @@
                     [newNodes setValue:[NSValue valueWithCGPoint:neighborPt] forKey:neighborKey];
                 }
             }
-            
         }
         
-        if ((phase == 1 && aliveCount < 2) || (phase == 3 && aliveCount > 3)) {
+        if (aliveCount != 2 && aliveCount != 3) {
             evolvedMap[(int)pt.x][(int)pt.y] = NO;
             [self.nodes removeObjectForKey:[self keyForCGPoint:pt]];
         }
@@ -106,15 +97,18 @@
     for (int i = 0; i < 9; i++) {
         int adjX = x+(i/3) - 1;
         int adjY = y+(i%3) - 1;
-        if (adjX < 0 || adjY < 0 || adjX >= APGRID_WIDTH || adjY >= APGRID_HEIGHT) {
+        if (adjX < 0 || adjY < 0 ||
+            adjX >= APGRID_WIDTH || adjY >= APGRID_HEIGHT ||
+            (adjX == x && adjY == y)) {
+            
             continue;
         }
-        if (adjX != x && adjY != y) {
-            CGPoint adjPoint = CGPointMake(adjX, adjY);
-            NSValue *val = [NSValue valueWithCGPoint:adjPoint];
-            [neighbors addObject:val];
-        }
+        
+        CGPoint adjPoint = CGPointMake(adjX, adjY);
+        NSValue *val = [NSValue valueWithCGPoint:adjPoint];
+        [neighbors addObject:val];
     }
+    
     return neighbors;
 }
 

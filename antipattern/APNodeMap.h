@@ -10,5 +10,6 @@
 
 -(bool)insertNodeAtPos:(CGPoint)pt;
 -(void)evolve;
+-(void)spawnRandom;
 
 @end

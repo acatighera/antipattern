@@ -1,7 +1,7 @@
 #import "APNodeMap.h"
 
 @interface APNodeMap () {
-    NSString *_map[APGRID_WIDTH][APGRID_HEIGHT];
+    bool _map[APGRID_WIDTH][APGRID_HEIGHT];
 }
 
 @end
@@ -13,40 +13,37 @@
     return [super init];
 }
 
--(void)spawn {
-    for (int i = 0; i < APGRID_WIDTH; i++) {
-        for (int j = 0; j < APGRID_HEIGHT; j++) {
-            _map[i][j] = @"d";
-        }
-    }
-}
 
 -(void)spawnRandom {
     for (int i = 0; i < APGRID_WIDTH; i++) {
         for (int j = 0; j < APGRID_HEIGHT; j++) {
             if (arc4random_uniform(2) == 0) {
                 [self insertNodeAtPos:CGPointMake(i, j)];
-            } else {
-                _map[i][j] = [NSString stringWithFormat:@"d%i%i", i, j];
             }
         }
     }
 }
 
--(APNode *)insertNodeAtPos:(CGPoint)pt {
+-(bool)insertNodeAtPos:(CGPoint)pt {
     if ([self isAliveNodeAtPos:pt] || pt.x >= APGRID_WIDTH || pt.y >= APGRID_HEIGHT) {
-        return nil;
+        return NO;
     }
-    APNode *node = [[APNode alloc] init];
-    return [self insertNode:node atPos:pt];
+    _map[(int)pt.x][(int)pt.y] = YES;
+    [self.nodes setValue:[NSValue valueWithCGPoint:pt] forKey:[self keyForCGPoint:pt]];
+    return YES;
 }
 
--(APNode *)insertNode:(APNode *)node atPos:(CGPoint)pt {
-    [node setPosition:pt];
-    _map[(int)pt.x][(int)pt.y] = [node description];
-    [self.nodes setObject:node forKey:[node description]];
-    
-    return node;
+-(NSString *) keyForCGPoint:(CGPoint)pt {
+    return [NSString stringWithFormat:@"%i|%i", (int)pt.x, (int)pt.y];
+}
+
+-(CGPoint) pointForKey:(NSString *)key {
+    NSValue *value = [self.nodes valueForKey:key];
+    if (value) {
+        return [value CGPointValue];
+    } else {
+        return CGPointMake(0,0);
+    }
 }
 
 -(void)evolve {
@@ -56,29 +53,33 @@
     [self evolve:4];
 }
 
+
 -(void)evolve:(int)phase {
-    NSString *evolvedMap[APGRID_WIDTH][APGRID_HEIGHT];
-    [self overwriteMap:evolvedMap withMap:_map];
     NSMutableDictionary *newNodes = [NSMutableDictionary dictionary];
+    bool evolvedMap[APGRID_WIDTH][APGRID_HEIGHT];
+    [self overwriteMap:evolvedMap withMap:_map];
     
-    for (APNode *currentNode in [self.nodes allValues]) {
+    for (NSValue *val in [self.nodes allValues]) {
         int aliveCount = 0;
-        for (NSDictionary *neighborTuple in [self getNeighborsAt:currentNode.position]) {
-            if ([[neighborTuple objectForKey:@"alive"] boolValue]) {
+        CGPoint pt = [val CGPointValue];
+        for (NSValue *neighborVal in [self getNeighborsAt:pt]) {
+            CGPoint neighborPt = [neighborVal CGPointValue];
+            if (_map[(int)neighborPt.x][(int)neighborPt.y]) {
                 aliveCount++;
             } else if (phase == 4){
-                APNode *newNode = [self reviveTupleToLiveNode:neighborTuple];
-                if (newNode) {
-                    [newNodes setObject:newNode forKey:[newNode description]];
-                    evolvedMap[(int)newNode.position.x][(int)newNode.position.y] = [newNode description];
+                bool shouldRevive = [self shouldReviveNodeAt:neighborPt];
+                if (shouldRevive) {
+                    NSString *neighborKey = [self keyForCGPoint:neighborPt];
+                    evolvedMap[(int)neighborPt.x][(int)neighborPt.y] = YES;
+                    [newNodes setValue:[NSValue valueWithCGPoint:neighborPt] forKey:neighborKey];
                 }
             }
             
         }
         
         if ((phase == 1 && aliveCount < 2) || (phase == 3 && aliveCount > 3)) {
-            currentNode.alive = NO;
-            [self.nodes removeObjectForKey:[currentNode description]];
+            evolvedMap[(int)pt.x][(int)pt.y] = NO;
+            [self.nodes removeObjectForKey:[self keyForCGPoint:pt]];
         }
         
     }
@@ -87,8 +88,8 @@
     [self overwriteMap:_map withMap:evolvedMap];
 }
 
--(void)overwriteMap:(__strong NSString *[APGRID_WIDTH][APGRID_HEIGHT])map
-            withMap:(__strong NSString *[APGRID_WIDTH][APGRID_HEIGHT])newMap {
+-(void)overwriteMap:(bool [APGRID_WIDTH][APGRID_HEIGHT])map
+            withMap:(bool [APGRID_WIDTH][APGRID_HEIGHT])newMap {
     for (int i = 0; i < APGRID_WIDTH; i++) {
         for (int j = 0; j < APGRID_HEIGHT; j++) {
             map[i][j] = newMap[i][j];
@@ -97,15 +98,10 @@
 }
 
 
-//TODO: replace tuple with APNode object
 -(NSArray *)getNeighborsAt:(CGPoint)pt {
-    NSMutableArray *neighborIds = [NSMutableArray array];
+    NSMutableArray *neighbors = [NSMutableArray array];
     int x = pt.x;
     int y = pt.y;
-    NSString *identifier = _map[x][y];
-    if (!identifier) {
-        return neighborIds;
-    }
     
     for (int i = 0; i < 9; i++) {
         int adjX = x+(i/3) - 1;
@@ -113,39 +109,34 @@
         if (adjX < 0 || adjY < 0 || adjX >= APGRID_WIDTH || adjY >= APGRID_HEIGHT) {
             continue;
         }
-        NSString *adjIdentifier = _map[adjX][adjY];
-        if (adjIdentifier && adjIdentifier != identifier) {
+        if (adjX != x && adjY != y) {
             CGPoint adjPoint = CGPointMake(adjX, adjY);
-            [neighborIds addObject:@{@"id": adjIdentifier,
-                                     @"x":@(adjX),
-                                     @"y":@(adjY),
-                                     @"alive":@([self isAliveNodeAtPos:adjPoint])}];
+            NSValue *val = [NSValue valueWithCGPoint:adjPoint];
+            [neighbors addObject:val];
         }
     }
-    return neighborIds;
+    return neighbors;
 }
 
 -(bool)isAliveNodeAtPos:(CGPoint) pt {
-    return _map[(int)pt.x][(int)pt.y] && [self.nodes objectForKey:_map[(int)pt.x][(int)pt.y]];
+    return _map[(int)pt.x][(int)pt.y];
 }
 
--(APNode *)reviveTupleToLiveNode:(NSDictionary *)nodeTuple {
+-(bool)shouldReviveNodeAt:(CGPoint)pt {
     
     int aliveCount = 0;
-    CGPoint pt =CGPointMake([[nodeTuple objectForKey:@"x"] intValue],
-                            [[nodeTuple objectForKey:@"y"] intValue]);
     
-    for (NSDictionary *neighborTuple in [self getNeighborsAt:pt]) {
-        if ([[neighborTuple objectForKey:@"alive"] boolValue]) {
+    for (NSValue *val in [self getNeighborsAt:pt]) {
+        CGPoint pt = [val CGPointValue];
+        if (_map[(int)pt.x][(int)pt.y]) {
             aliveCount++;
         }
     }
+    
     if (aliveCount == 3) {
-        APNode *revivedNode = [[APNode alloc] init];
-        revivedNode.position = pt;
-        return revivedNode;
+        return YES;
     }
-    return nil;
+    return NO;
 }
 
 

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/GameScene.m"
-            timestampString = "492019861.90849"
+            timestampString = "492026517.306832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-createGridWithCellSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/GameScene.m"
-            timestampString = "492022215.688058"
+            timestampString = "492026517.306832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-drawMap"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,43 +42,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-evolve:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-evolve:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
+            landmarkName = "-evolve:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028014.499667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-evolve:"
             landmarkType = "5">
             <Locations>
@@ -86,31 +70,31 @@
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[APNodeMap evolve]"
+                  symbolName = "-[APNodeMap evolve:]"
                   moduleName = "antipattern"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/alex/Projects/antipattern/antipattern/APNodeMap.m"
-                  timestampString = "491953583.628315"
+                  timestampString = "492027095.923426"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "191">
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "177">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[APNodeMap evolve]"
+                  symbolName = "-[APNodeMap evolve:]"
                   moduleName = "antipattern"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/alex/Projects/antipattern/antipattern/APNodeMap.m"
-                  timestampString = "491953583.628493"
+                  timestampString = "492027095.923624"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "199">
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "185">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -154,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/GameScene.m"
-            timestampString = "492022215.688058"
+            timestampString = "492026517.306832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-clear"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-evolve:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,27 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-getNeighborsAt:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-getNeighborsAt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -235,11 +203,11 @@
             condition = "pt.x == 2"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-getNeighborsAt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -251,7 +219,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -267,7 +235,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -283,45 +251,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-evolve:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[APNodeMap evolve]"
-                  moduleName = "antipattern"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alex/Projects/antipattern/antipattern/APNodeMap.m"
-                  timestampString = "491951622.945276"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "526">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[APNodeMap evolve]"
-                  moduleName = "antipattern"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alex/Projects/antipattern/antipattern/APNodeMap.m"
-                  timestampString = "491951622.945408"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "534">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -331,11 +267,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-getNeighborsAt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -347,11 +283,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-getNeighborsAt:"
             landmarkType = "5">
          </BreakpointContent>
@@ -363,12 +299,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-reviveTupleToLiveNode:"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-shouldReviveNodeAt:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -379,12 +315,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-reviveTupleToLiveNode:"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "-shouldReviveNodeAt:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -395,11 +331,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/APNodeMap.m"
-            timestampString = "492022679.930006"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-evolve:"
             landmarkType = "5">
          </BreakpointContent>
@@ -411,7 +347,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "antipattern/GameScene.m"
-            timestampString = "492022215.688058"
+            timestampString = "492026517.306832"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-touchesBegan:withEvent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/GameScene.m"
+            timestampString = "492026517.306832"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -426,13 +378,141 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "antipattern/GameScene.m"
-            timestampString = "492022215.688058"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028014.499667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-touchesBegan:withEvent:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-evolve:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028014.499667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-evolve:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492027056.800596"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-insertNodeAtPos:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028014.499667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-evolve:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[APNodeMap evolve:]"
+                  moduleName = "antipattern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/Projects/antipattern/antipattern/APNodeMap.m"
+                  timestampString = "492027145.524642"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "545">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[APNodeMap evolve:]"
+                  moduleName = "antipattern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/Projects/antipattern/antipattern/APNodeMap.m"
+                  timestampString = "492027145.524779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "553">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028014.499667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-pointForKey:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028039.270243"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-pointForKey:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "antipattern/APNodeMap.m"
+            timestampString = "492028219.570991"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-shouldReviveNodeAt:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

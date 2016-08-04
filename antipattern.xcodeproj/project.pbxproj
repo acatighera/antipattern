@@ -18,7 +18,6 @@
 		FA0A5EC61D518376004E0EE5 /* antipatternTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A5EC51D518376004E0EE5 /* antipatternTests.m */; };
 		FA0A5ED11D518376004E0EE5 /* antipatternUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A5ED01D518376004E0EE5 /* antipatternUITests.m */; };
 		FA38A9EE1D51A6C2004CBA0B /* APNodeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FA38A9ED1D51A6C2004CBA0B /* APNodeMap.m */; };
-		FA38A9F11D51A6D4004CBA0B /* APNode.m in Sources */ = {isa = PBXBuildFile; fileRef = FA38A9F01D51A6D4004CBA0B /* APNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +59,6 @@
 		FA0A5ED21D518376004E0EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA38A9EC1D51A6C2004CBA0B /* APNodeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNodeMap.h; sourceTree = "<group>"; };
 		FA38A9ED1D51A6C2004CBA0B /* APNodeMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNodeMap.m; sourceTree = "<group>"; };
-		FA38A9EF1D51A6D4004CBA0B /* APNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNode.h; sourceTree = "<group>"; };
-		FA38A9F01D51A6D4004CBA0B /* APNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +123,6 @@
 				FA0A5EA61D518376004E0EE5 /* Supporting Files */,
 				FA38A9EC1D51A6C2004CBA0B /* APNodeMap.h */,
 				FA38A9ED1D51A6C2004CBA0B /* APNodeMap.m */,
-				FA38A9EF1D51A6D4004CBA0B /* APNode.h */,
-				FA38A9F01D51A6D4004CBA0B /* APNode.m */,
 			);
 			path = antipattern;
 			sourceTree = "<group>";
@@ -293,7 +288,6 @@
 				FA38A9EE1D51A6C2004CBA0B /* APNodeMap.m in Sources */,
 				FA0A5EAB1D518376004E0EE5 /* AppDelegate.m in Sources */,
 				FA0A5EAE1D518376004E0EE5 /* GameScene.m in Sources */,
-				FA38A9F11D51A6D4004CBA0B /* APNode.m in Sources */,
 				FA0A5EA81D518376004E0EE5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

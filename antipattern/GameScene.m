@@ -8,7 +8,6 @@
 
 #import "GameScene.h"
 #import "APNodeMap.h"
-#import "APNode.h"
 
 @interface GameScene ()
 
@@ -86,9 +85,10 @@
 }
 
 -(void)drawMap {
-    for (APNode *node in [[self.map nodes] allValues]) {
-        float scaledX = (node.position.x * self.cellSize) + self.cellSize / 2;
-        float scaledY = (node.position.y * self.cellSize) + self.cellSize / 2;
+    for (NSValue *val in [[self.map nodes] allValues]) {
+        CGPoint pt = [val CGPointValue];
+        float scaledX = (pt.x * self.cellSize) + self.cellSize / 2;
+        float scaledY = (pt.y * self.cellSize) + self.cellSize / 2;
         [self drawNodeAt:CGPointMake(scaledX, scaledY)];
     }
 }

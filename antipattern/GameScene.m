@@ -36,7 +36,7 @@
     /* Setup your scene here */
     [self setBackgroundColor:[UIColor blackColor]];
     self.map = [[APNodeMap alloc] init];
-    [self.map spawnRandom];
+    //[self.map spawnRandom];
     [self createGridWithCellSize:5];
     self.size = view.bounds.size;
 }

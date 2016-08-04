@@ -25,8 +25,11 @@
 }
 
 -(bool)insertNodeAtPos:(CGPoint)pt {
-    if ([self isAliveNodeAtPos:pt] || pt.x >= APGRID_WIDTH || pt.y >= APGRID_HEIGHT) {
+    if ([self isAliveNodeAtPos:pt]) {
         return NO;
+    }
+    if (pt.x >= APGRID_WIDTH || pt.y >= APGRID_HEIGHT) {
+        pt = CGPointMake((int)pt.x % APGRID_WIDTH, (int)pt.y % APGRID_HEIGHT);
     }
     _map[(int)pt.x][(int)pt.y] = YES;
     [self.nodes setValue:[NSValue valueWithCGPoint:pt] forKey:[self keyForCGPoint:pt]];
@@ -97,10 +100,26 @@
     for (int i = 0; i < 9; i++) {
         int adjX = x+(i/3) - 1;
         int adjY = y+(i%3) - 1;
-        if (adjX < 0 || adjY < 0 ||
-            adjX >= APGRID_WIDTH || adjY >= APGRID_HEIGHT ||
-            (adjX == x && adjY == y)) {
+        
+        if (adjX < 0) {
+            adjX = (APGRID_WIDTH + adjX) % APGRID_WIDTH;
             
+        }
+        
+        if (adjY < 0) {
+            adjY = (APGRID_HEIGHT + adjY) % APGRID_HEIGHT;
+            
+        }
+        
+        if (adjX >= APGRID_WIDTH) {
+            adjX = (APGRID_WIDTH - adjX) % APGRID_WIDTH;
+        }
+        
+        if (adjY >= APGRID_HEIGHT) {
+            adjY = (APGRID_HEIGHT - adjY) % APGRID_HEIGHT;
+        }
+        
+        if (adjX == x && adjY == y) {
             continue;
         }
         

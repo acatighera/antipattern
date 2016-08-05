@@ -47,21 +47,22 @@
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    [self setBackgroundColor:[UIColor blackColor]];
-    self.nodeQueue = dispatch_queue_create("com.boba.NodeQueue", NULL);
-    self.map = [[APNodeMap alloc] init];
-    [self.map spawnRandom];
-    self.size = view.bounds.size;
+    self.nodeQueue     = dispatch_queue_create("com.boba.NodeQueue", NULL);
+    self.map           = [[APNodeMap alloc] init];
     uint8_t strokeSize = 1;
-    self.cellSize = (int)strokeSize + (self.size.width / APGRID_WIDTH);
+    self.size          = view.bounds.size;
+    self.cellSize      = (int)strokeSize + (self.size.width / APGRID_WIDTH);
+    
+    [self setBackgroundColor:[UIColor blackColor]];
+    [self.map spawnRandom];
     [self createGrid];
 }
 
 -(void)createGrid {
     CGFloat height = APGRID_HEIGHT * self.cellSize;
-    CGFloat width= APGRID_WIDTH * self.cellSize;
-    uint8_t rows = height / self.cellSize;
-    uint8_t cols = width / self.cellSize;
+    CGFloat width  = APGRID_WIDTH * self.cellSize;
+    uint8_t rows   = APGRID_HEIGHT;
+    uint8_t cols   = APGRID_WIDTH;
     
     CGMutablePathRef path = CGPathCreateMutable();
     for (int i = 0; i <= rows; i++) {
@@ -89,8 +90,8 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint pt = [touch locationInView:self.view];
+    UITouch *touch   = [touches anyObject];
+    CGPoint pt       = [touch locationInView:self.view];
     CGPoint scaledPt =
         CGPointMake((int)(pt.x - self.cellSize / 2) / self.cellSize,
                     (int)((self.view.bounds.size.height - pt.y) / self.cellSize));
@@ -103,7 +104,6 @@
 -(void)clear {
     [self.canvas removeAllChildren];
     [self.canvas addChild:self.grid];
-    self.shouldRasterize = NO;
 }
 
 -(void)drawMap {

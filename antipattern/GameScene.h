@@ -10,6 +10,9 @@
 
 @interface GameScene : SKScene
 
--(void) start;
+@property(atomic, assign) bool isRunning;
+
+-(void)start;
+-(void)stop;
 
 @end

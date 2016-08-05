@@ -11,6 +11,9 @@
 
 @interface GameViewController : UIViewController
 
--(IBAction)start:(id)sender;
+
+-(IBAction)startToggle:(id)sender;
+
+@property(nonatomic, strong) IBOutlet UIButton *startToggle;
 
 @end

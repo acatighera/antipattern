@@ -17,7 +17,7 @@
 -(void)spawnRandom {
     for (int i = 0; i < APGRID_WIDTH; i++) {
         for (int j = 0; j < APGRID_HEIGHT; j++) {
-            if (arc4random_uniform(4) == 0) {
+            if (arc4random_uniform(7) == 0) {
                 [self insertNodeAtPos:CGPointMake(i, j)];
             }
         }
@@ -50,45 +50,43 @@
 }
 
 -(void)evolve {
-    NSMutableDictionary *newNodes = [NSMutableDictionary dictionary];
-    bool evolvedMap[APGRID_WIDTH][APGRID_HEIGHT];
-    [self overwriteMap:evolvedMap withMap:_map];
-    
-    for (NSValue *val in [self.nodes allValues]) {
-        int aliveCount = 0;
-        CGPoint pt = [val CGPointValue];
-        for (NSValue *neighborVal in [self getNeighborsAt:pt]) {
-            CGPoint neighborPt = [neighborVal CGPointValue];
-            if (_map[(int)neighborPt.x][(int)neighborPt.y]) {
-                aliveCount++;
-            } else {
-                bool shouldRevive = [self shouldReviveNodeAt:neighborPt];
-                if (shouldRevive) {
-                    NSString *neighborKey = [self keyForCGPoint:neighborPt];
-                    evolvedMap[(int)neighborPt.x][(int)neighborPt.y] = YES;
-                    [newNodes setValue:[NSValue valueWithCGPoint:neighborPt] forKey:neighborKey];
+    @synchronized (self) {
+        NSMutableDictionary *newNodes = [NSMutableDictionary dictionary];
+        bool evolvedMap[APGRID_WIDTH][APGRID_HEIGHT];
+        [self overwriteMap:evolvedMap withMap:_map];
+        
+        for (NSValue *val in [self.nodes allValues]) {
+            int aliveCount = 0;
+            CGPoint pt = [val CGPointValue];
+            for (NSValue *neighborVal in [self getNeighborsAt:pt]) {
+                CGPoint neighborPt = [neighborVal CGPointValue];
+                if (_map[(int)neighborPt.x][(int)neighborPt.y]) {
+                    aliveCount++;
+                } else {
+                    bool shouldRevive = [self shouldReviveNodeAt:neighborPt];
+                    if (shouldRevive) {
+                        NSString *neighborKey = [self keyForCGPoint:neighborPt];
+                        evolvedMap[(int)neighborPt.x][(int)neighborPt.y] = YES;
+                        [newNodes setValue:[NSValue valueWithCGPoint:neighborPt] forKey:neighborKey];
+                    }
                 }
             }
+            
+            if (aliveCount != 2 && aliveCount != 3) {
+                evolvedMap[(int)pt.x][(int)pt.y] = NO;
+                [self.nodes removeObjectForKey:[self keyForCGPoint:pt]];
+            }
+            
         }
         
-        if (aliveCount != 2 && aliveCount != 3) {
-            evolvedMap[(int)pt.x][(int)pt.y] = NO;
-            [self.nodes removeObjectForKey:[self keyForCGPoint:pt]];
-        }
-        
+        [self.nodes addEntriesFromDictionary:newNodes];
+        [self overwriteMap:_map withMap:evolvedMap];
     }
-    
-    [self.nodes addEntriesFromDictionary:newNodes];
-    [self overwriteMap:_map withMap:evolvedMap];
 }
 
 -(void)overwriteMap:(bool [APGRID_WIDTH][APGRID_HEIGHT])map
             withMap:(bool [APGRID_WIDTH][APGRID_HEIGHT])newMap {
-    for (int i = 0; i < APGRID_WIDTH; i++) {
-        for (int j = 0; j < APGRID_HEIGHT; j++) {
-            map[i][j] = newMap[i][j];
-        }
-    }
+    memcpy(map, newMap, sizeof(bool) * APGRID_WIDTH * APGRID_HEIGHT);
 }
 
 

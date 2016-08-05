@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define APGRID_WIDTH 60
-#define APGRID_HEIGHT 120
+#define APGRID_WIDTH 90
+#define APGRID_HEIGHT 160
 
 @interface APNodeMap : NSObject
 
-@property(nonatomic, strong) NSMutableDictionary *nodes;
+@property(atomic, strong) NSMutableDictionary *nodes;
 
 -(bool)insertNodeAtPos:(CGPoint)pt;
 -(void)evolve;

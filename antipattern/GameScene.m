@@ -11,9 +11,11 @@
 
 @interface GameScene ()
 
+@property(atomic, strong) APNodeMap *map;
 @property(nonatomic, assign) uint8_t cellSize;
-@property(nonatomic, strong) APNodeMap *map;
 @property(nonatomic, strong) SKShapeNode *grid;
+@property(nonatomic, strong) SKEffectNode *canvas;
+@property(nonatomic, strong) dispatch_queue_t nodeQueue;
 
 @end
 
@@ -21,32 +23,43 @@
 
 -(void)start {
     [self run];
+    self.isRunning = YES;
+}
+
+-(void)stop {
+    self.isRunning = NO;
 }
 
 -(void)run {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.map evolve];
-            [self clear];
-            [self drawMap];
-            [self run];
+    __weak GameScene *weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), self.nodeQueue, ^{
+            if ([weakSelf isRunning]) {
+                [weakSelf.map evolve];
+                [weakSelf run];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [weakSelf clear];
+                    [weakSelf drawMap];
+                });
+                
+            }
     });
 }
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     [self setBackgroundColor:[UIColor blackColor]];
+    self.nodeQueue = dispatch_queue_create("com.boba.NodeQueue", NULL);
     self.map = [[APNodeMap alloc] init];
-    //[self.map spawnRandom];
-    [self createGridWithCellSize:5];
+    [self.map spawnRandom];
     self.size = view.bounds.size;
+    uint8_t strokeSize = 1;
+    self.cellSize = (int)strokeSize + (self.size.width / APGRID_WIDTH);
+    [self createGrid];
 }
 
--(void)createGridWithCellSize:(uint8_t)cellSize {
-    uint8_t strokeSize = 1;
-    self.cellSize = cellSize + strokeSize;
-    CGFloat screenScale = 1;
-    CGFloat height = self.view.bounds.size.height * screenScale;
-    CGFloat width= self.view.bounds.size.width * screenScale;
+-(void)createGrid {
+    CGFloat height = APGRID_HEIGHT * self.cellSize;
+    CGFloat width= APGRID_WIDTH * self.cellSize;
     uint8_t rows = height / self.cellSize;
     uint8_t cols = width / self.cellSize;
     
@@ -61,10 +74,16 @@
         CGPathAddLineToPoint(path, NULL, self.cellSize * i, height);
     }
     
+    
+    self.canvas = [SKEffectNode node];
+    self.canvas.shouldRasterize = YES;
+    [self addChild:self.canvas];
+    
     self.grid = [SKShapeNode node];
     self.grid.path = path;
     [self.grid setStrokeColor:[SKColor colorWithRed:1.0f green:0.3f blue:0.3f alpha:0.6f]];
-    [self addChild:self.grid];
+    [self.canvas addChild:self.grid];
+    
     [self drawMap];
     
 }
@@ -82,26 +101,28 @@
 }
 
 -(void)clear {
-    [self removeAllChildren];
-    [self addChild:self.grid];
+    [self.canvas removeAllChildren];
+    [self.canvas addChild:self.grid];
+    self.shouldRasterize = NO;
 }
 
 -(void)drawMap {
     for (NSValue *val in [[self.map nodes] allValues]) {
         CGPoint pt = [val CGPointValue];
-        float scaledX = (pt.x * self.cellSize) + self.cellSize / 2;
-        float scaledY = (pt.y * self.cellSize) + self.cellSize / 2;
+        float scaledX = (pt.x * self.cellSize) + self.cellSize / 2.0;
+        float scaledY = (pt.y * self.cellSize) + self.cellSize / 2.0;
         [self drawNodeAt:CGPointMake(scaledX, scaledY)];
     }
 }
 
 -(void)drawNodeAt:(CGPoint)pt {
-    SKShapeNode *circle = [SKShapeNode shapeNodeWithCircleOfRadius:self.cellSize / 3];
+    SKShapeNode *circle = [SKShapeNode shapeNodeWithCircleOfRadius:self.cellSize / 2.8];
     circle.position = pt;
     circle.strokeColor = [SKColor blueColor];
     circle.fillColor =[SKColor greenColor];
-    [self addChild:circle];
+    [self.canvas addChild:circle];
 }
+
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */

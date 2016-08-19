@@ -1,4 +1,5 @@
 #import "APNodeMap.h"
+#import "Patterns.h"
 
 @interface APNodeMap () {
     bool _map[APGRID_WIDTH][APGRID_HEIGHT];
@@ -14,11 +15,11 @@
 }
 
 
--(void)spawnRandom {
-    for (int i = 0; i < APGRID_WIDTH; i++) {
-        for (int j = 0; j < APGRID_HEIGHT; j++) {
-            if (arc4random_uniform(7) == 0) {
-                [self insertNodeAtPos:CGPointMake(i, j)];
+- (void)insertNodes:(bool [APGRID_WIDTH][APGRID_HEIGHT]) rawMap withOffset:(CGPoint) offset {
+    for(int i = 0; i < APGRID_WIDTH; i++){
+        for(int j = 0; j < APGRID_HEIGHT; j++){
+            if (rawMap[i][j]) {
+                [self insertNodeAtPos:CGPointMake(i + offset.x, j + offset.y)];
             }
         }
     }
@@ -36,11 +37,11 @@
     return YES;
 }
 
--(NSString *) keyForCGPoint:(CGPoint)pt {
+-(NSString *)keyForCGPoint:(CGPoint)pt {
     return [NSString stringWithFormat:@"%i|%i", (int)pt.x, (int)pt.y];
 }
 
--(CGPoint) pointForKey:(NSString *)key {
+-(CGPoint)pointForKey:(NSString *)key {
     NSValue *value = [self.nodes valueForKey:key];
     if (value) {
         return [value CGPointValue];
@@ -99,6 +100,7 @@
         int adjX = x+(i/3) - 1;
         int adjY = y+(i%3) - 1;
         
+        // wrap around 
         if (adjX < 0) {
             adjX = (APGRID_WIDTH + adjX) % APGRID_WIDTH;
             
@@ -148,6 +150,11 @@
         return YES;
     }
     return NO;
+}
+
+-(void)removeAllNodes {
+    memset(_map, 0, sizeof(bool) * APGRID_WIDTH * APGRID_HEIGHT);
+    [self.nodes removeAllObjects];
 }
 
 

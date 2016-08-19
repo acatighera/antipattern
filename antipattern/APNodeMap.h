@@ -8,8 +8,9 @@
 
 @property(atomic, strong) NSMutableDictionary *nodes;
 
+-(void) insertNodes:(bool [APGRID_WIDTH][APGRID_HEIGHT]) rawMap withOffset:(CGPoint) offset;
 -(bool)insertNodeAtPos:(CGPoint)pt;
 -(void)evolve;
--(void)spawnRandom;
+-(void)removeAllNodes;
 
 @end

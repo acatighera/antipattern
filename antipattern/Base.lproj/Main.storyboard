@@ -18,11 +18,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alert" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-RE-aoT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
+                                <color key="backgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="sYT-12-Qtf"/>
+                                    <constraint firstAttribute="height" constant="47" id="yMr-p6-lzz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sYT-12-Qtf"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Kb-by0">
+                                <rect key="frame" x="199.5" y="28" width="200" height="509"/>
+                                <color key="backgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="u76-4i-kpQ"/>
+                                </constraints>
+                                <color key="sectionIndexBackgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patternPickerCell" id="9yh-EH-Rq5">
+                                        <rect key="frame" x="0.0" y="28" width="200" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9yh-EH-Rq5" id="v2l-oE-i6o">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BV1-FR-VrT" id="boh-GO-X8g"/>
+                                    <outlet property="delegate" destination="BV1-FR-VrT" id="bXq-Ud-pFr"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAG-If-88a">
-                                <rect key="frame" x="0.0" y="545" width="78" height="55"/>
+                                <rect key="frame" x="0.0" y="545" width="600" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tf0-JY-Lir">
-                                        <rect key="frame" x="8" y="12.5" width="57" height="30"/>
+                                        <rect key="frame" x="214" y="12" width="57" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="57" id="cM2-Fp-n54"/>
                                             <constraint firstAttribute="height" constant="30" id="yQQ-QH-UZO"/>
@@ -31,10 +72,8 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="►">
                                                     <attributes>
-                                                        <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <font key="NSFont" size="28" name="ArialMT"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -43,33 +82,92 @@
                                             <action selector="startToggle:" destination="BV1-FR-VrT" eventType="touchDown" id="7MO-kq-nqn"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-wf-nCe">
+                                        <rect key="frame" x="271" y="12" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="57" id="Idl-80-IOY"/>
+                                            <constraint firstAttribute="height" constant="30" id="RQz-Un-mn5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="51"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPattern:" destination="BV1-FR-VrT" eventType="touchDown" id="RJn-gM-8vX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOs-lX-tgS">
+                                        <rect key="frame" x="328" y="13" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FQ4-XK-N8T"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="Q2K-Rz-qR4"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="57" id="XL9-Mb-o4s"/>
+                                            <constraint firstAttribute="width" constant="57" id="jQN-RT-AJW"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ukK-qp-skv"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="wpo-X6-csN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="39"/>
+                                        <state key="normal" title="✕">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearGrid:" destination="BV1-FR-VrT" eventType="touchDown" id="iOt-km-gDG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25004316298342544" green="0.25004316298342544" blue="0.25004316298342544" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="TuY-wf-nCe" firstAttribute="leading" secondItem="Tf0-JY-Lir" secondAttribute="trailing" id="32A-H8-L08"/>
                                     <constraint firstItem="Tf0-JY-Lir" firstAttribute="leading" secondItem="xAG-If-88a" secondAttribute="leading" constant="8" id="8CW-aL-Eyr"/>
+                                    <constraint firstItem="TuY-wf-nCe" firstAttribute="centerY" secondItem="xAG-If-88a" secondAttribute="centerY" id="AV2-jC-xtd"/>
                                     <constraint firstItem="Tf0-JY-Lir" firstAttribute="centerY" secondItem="xAG-If-88a" secondAttribute="centerY" id="N7H-qh-KZl"/>
+                                    <constraint firstItem="gOs-lX-tgS" firstAttribute="leading" secondItem="TuY-wf-nCe" secondAttribute="trailing" id="U26-bo-SR8"/>
+                                    <constraint firstItem="Tf0-JY-Lir" firstAttribute="centerX" secondItem="xAG-If-88a" secondAttribute="centerX" constant="-57" id="Ydw-7d-PAR"/>
+                                    <constraint firstItem="gOs-lX-tgS" firstAttribute="centerY" secondItem="xAG-If-88a" secondAttribute="centerY" id="iwz-gM-sla"/>
                                     <constraint firstAttribute="height" constant="55" id="nXk-fA-7ja"/>
                                     <constraint firstAttribute="width" constant="78" id="qXQ-GC-GE7"/>
+                                    <constraint firstItem="Tf0-JY-Lir" firstAttribute="centerX" secondItem="xAG-If-88a" secondAttribute="centerX" id="xa0-kL-bwv"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qXQ-GC-GE7"/>
+                                        <exclude reference="8CW-aL-Eyr"/>
+                                        <exclude reference="xa0-kL-bwv"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="MGl-Kb-by0" firstAttribute="top" secondItem="8aa-yV-Osq" secondAttribute="bottom" constant="8" id="CT3-hy-zOb"/>
                             <constraint firstItem="xAG-If-88a" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="ROD-1I-n3S"/>
+                            <constraint firstItem="MGl-Kb-by0" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="SBa-b5-YfL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xAG-If-88a" secondAttribute="trailing" constant="-20" id="Uix-Tu-LCr"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="xAG-If-88a" secondAttribute="bottom" id="cNv-D1-JzY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lmk-RE-aoT" secondAttribute="trailing" constant="-20" id="cqc-1e-28i"/>
+                            <constraint firstItem="Lmk-RE-aoT" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="topMargin" id="mDs-kQ-1s6"/>
                             <constraint firstItem="xAG-If-88a" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" constant="-20" id="orq-cp-cQx"/>
+                            <constraint firstItem="Lmk-RE-aoT" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" constant="-20" id="sut-TL-Fcd"/>
+                            <constraint firstItem="xAG-If-88a" firstAttribute="top" secondItem="MGl-Kb-by0" secondAttribute="bottom" constant="8" id="uBp-Xb-Jgk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ROD-1I-n3S"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fwQ-jx-Lp2" appends="YES" id="ffD-qt-SZy"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="alert" destination="Lmk-RE-aoT" id="Ghc-F6-M1e"/>
                         <outlet property="startToggle" destination="Tf0-JY-Lir" id="1Fx-Iy-EmZ"/>
+                        <outlet property="tableView" destination="MGl-Kb-by0" id="UaR-IS-KWx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="fwQ-jx-Lp2"/>
             </objects>
             <point key="canvasLocation" x="267" y="420"/>
         </scene>

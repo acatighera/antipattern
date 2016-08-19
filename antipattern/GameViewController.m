@@ -84,13 +84,23 @@
 
 -(IBAction)addPattern:(id)sender {
     [self.tableView setHidden:NO];
+    [self flashPatternTableViewScrollIndicators];
 }
 
+-(void)flashPatternTableViewScrollIndicators {
+    __weak GameViewController *gvc = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [gvc.tableView flashScrollIndicators];
+    });
+}
 
--(IBAction)clearGrid:(id)sender {
+-(IBAction)clear:(id)sender {
     [self.scene stop];
     [self.startToggle setAttributedTitle:self.playTitle forState:UIControlStateNormal];
     [self.scene clearCanvasAndData];
+    if (!self.tableView.isHidden) {
+        [self.tableView setHidden:YES];
+    }
 }
 
 #pragma mark - Pattern Picker TableView

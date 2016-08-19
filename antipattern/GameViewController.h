@@ -14,7 +14,7 @@
 
 -(IBAction)startToggle:(id)sender;
 -(IBAction)addPattern:(id)sender;
--(IBAction)clearGrid:(id)sender;
+-(IBAction)clear:(id)sender;
 
 @property(nonatomic, strong) IBOutlet UIButton *startToggle;
 @property(nonatomic, strong) IBOutlet UILabel *alert;

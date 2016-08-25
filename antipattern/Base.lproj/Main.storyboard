@@ -35,19 +35,19 @@
                                 </variation>
                             </label>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Kb-by0">
-                                <rect key="frame" x="199.5" y="28" width="200" height="509"/>
+                                <rect key="frame" x="175" y="55" width="250" height="482"/>
                                 <color key="backgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="u76-4i-kpQ"/>
+                                    <constraint firstAttribute="width" constant="250" id="u76-4i-kpQ"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.25004316300000001" green="0.25004316300000001" blue="0.25004316300000001" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patternPickerCell" id="9yh-EH-Rq5">
-                                        <rect key="frame" x="0.0" y="28" width="200" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="250" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9yh-EH-Rq5" id="v2l-oE-i6o">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -148,11 +148,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Lmk-RE-aoT" secondAttribute="trailing" constant="-20" id="cqc-1e-28i"/>
                             <constraint firstItem="Lmk-RE-aoT" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="topMargin" id="mDs-kQ-1s6"/>
                             <constraint firstItem="xAG-If-88a" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" constant="-20" id="orq-cp-cQx"/>
+                            <constraint firstItem="MGl-Kb-by0" firstAttribute="top" secondItem="Lmk-RE-aoT" secondAttribute="bottom" constant="8" id="rbN-BY-DOU"/>
                             <constraint firstItem="Lmk-RE-aoT" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" constant="-20" id="sut-TL-Fcd"/>
                             <constraint firstItem="xAG-If-88a" firstAttribute="top" secondItem="MGl-Kb-by0" secondAttribute="bottom" constant="8" id="uBp-Xb-Jgk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="CT3-hy-zOb"/>
                                 <exclude reference="ROD-1I-n3S"/>
                             </mask>
                         </variation>

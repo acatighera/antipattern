@@ -83,8 +83,12 @@
 }
 
 -(IBAction)addPattern:(id)sender {
-    [self.tableView setHidden:NO];
-    [self flashPatternTableViewScrollIndicators];
+    if ([self.tableView isHidden]) {
+        [self.tableView setHidden:NO];
+        [self flashPatternTableViewScrollIndicators];
+    } else {
+        [self.tableView setHidden:YES];
+    }
 }
 
 -(void)flashPatternTableViewScrollIndicators {
@@ -112,6 +116,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     [cell.textLabel setTextColor:[UIColor whiteColor]];
+    cell.backgroundView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
         cell.textLabel.text = @"random";

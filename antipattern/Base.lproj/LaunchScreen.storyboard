@@ -16,7 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-3P-6mK">
+                                <rect key="frame" x="229.5" y="276" width="141" height="48.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Anti">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.083734587642325664" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Pattern ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.61335682477252984" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="A Game of Life simulator">
+                                        <attributes>
+                                            <color key="NSColor" red="0.8383480419100291" green="1" blue="0.53102810792520327" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="GillSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f9a-3P-6mK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7ZA-va-uiA"/>
+                            <constraint firstItem="f9a-3P-6mK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="kZw-th-1Bf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

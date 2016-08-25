@@ -227,6 +227,7 @@
 				TargetAttributes = {
 					FA0A5EA21D518376004E0EE5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = V7CD9TJLJQ;
 					};
 					FA0A5EC01D518376004E0EE5 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -440,10 +441,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: alex@bobaapps.com (4WU5JVJAU4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: alex@bobaapps.com (4WU5JVJAU4)";
 				INFOPLIST_FILE = antipattern/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boba.antipattern;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -452,10 +457,14 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Boba Apps, LLC (V7CD9TJLJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Boba Apps, LLC (V7CD9TJLJQ)";
 				INFOPLIST_FILE = antipattern/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boba.antipattern;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

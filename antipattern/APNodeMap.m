@@ -3,6 +3,7 @@
 
 @interface APNodeMap () {
     bool _map[APGRID_WIDTH][APGRID_HEIGHT];
+    NSArray *_neighborMap[APGRID_WIDTH][APGRID_HEIGHT];
 }
 
 @end
@@ -48,6 +49,7 @@
     } else {
         return CGPointMake(0,0);
     }
+    
 }
 
 -(void)evolve {
@@ -55,11 +57,15 @@
         NSMutableDictionary *newNodes = [NSMutableDictionary dictionary];
         bool evolvedMap[APGRID_WIDTH][APGRID_HEIGHT];
         [self overwriteMap:evolvedMap withMap:_map];
-        
         for (NSValue *val in [self.nodes allValues]) {
             int aliveCount = 0;
             CGPoint pt = [val CGPointValue];
-            for (NSValue *neighborVal in [self getNeighborsAt:pt]) {
+            NSArray *neighbors = _neighborMap[(int)pt.x][(int)pt.y];
+            if (!neighbors) {
+                neighbors = [self getNeighborsAt:pt];
+                _neighborMap[(int)pt.x][(int)pt.y] = neighbors;
+            }
+            for (NSValue *neighborVal in neighbors) {
                 CGPoint neighborPt = [neighborVal CGPointValue];
                 if (_map[(int)neighborPt.x][(int)neighborPt.y]) {
                     aliveCount++;
@@ -82,7 +88,13 @@
         
         [self.nodes addEntriesFromDictionary:newNodes];
         [self overwriteMap:_map withMap:evolvedMap];
+        [self clearMap:_neighborMap];
+        
     }
+}
+
+-(void)clearMap:(__strong NSArray* [APGRID_WIDTH][APGRID_HEIGHT])map {
+    memset(map, 0, sizeof(map[0][0]) * APGRID_WIDTH * APGRID_HEIGHT);
 }
 
 -(void)overwriteMap:(bool [APGRID_WIDTH][APGRID_HEIGHT])map

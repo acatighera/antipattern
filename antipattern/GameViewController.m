@@ -63,7 +63,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -101,10 +100,12 @@
 -(IBAction)clear:(id)sender {
     [self.scene stop];
     [self.startToggle setAttributedTitle:self.playTitle forState:UIControlStateNormal];
-    [self.scene clearCanvasAndData];
-    if (!self.tableView.isHidden) {
-        [self.tableView setHidden:YES];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.scene clearCanvasAndData];
+        if (!self.tableView.isHidden) {
+            [self.tableView setHidden:YES];
+        }
+    });
 }
 
 #pragma mark - Pattern Picker TableView

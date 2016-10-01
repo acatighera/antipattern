@@ -9,6 +9,7 @@
 @property(atomic, strong) APSpawner *spawner;
 @property(nonatomic, assign) float cellSize;
 @property(nonatomic, strong) SKShapeNode *grid;
+@property(nonatomic, strong) SKTexture *nodeTexture;
 @property(nonatomic, strong) SKEffectNode *canvas;
 @property(nonatomic, strong) dispatch_queue_t nodeQueue;
 
@@ -46,6 +47,10 @@
     uint8_t strokeSize = 0;
     self.size          = view.bounds.size;
     self.cellSize      = strokeSize + (float)(self.size.width / APGRID_WIDTH);
+    SKShapeNode *shape = [SKShapeNode shapeNodeWithCircleOfRadius:self.cellSize / 2.8];
+    shape.strokeColor  = [SKColor blueColor];
+    shape.fillColor    = [SKColor greenColor];
+    self.nodeTexture   = [self.view textureFromNode:shape];
     
     [self setBackgroundColor:[UIColor blackColor]];
     [self.spawner spawnRandomOnMap:self.map];
@@ -75,6 +80,7 @@
     [self addChild:self.canvas];
     
     self.grid = [SKShapeNode node];
+    self.grid.antialiased = YES;
     self.grid.path = path;
     [self.grid setStrokeColor:[SKColor colorWithRed:1.0f green:0.3f blue:0.3f alpha:0.6f]];
     [self.canvas addChild:self.grid];
@@ -127,10 +133,8 @@
 }
 
 -(void)drawNodeAt:(CGPoint)pt {
-    SKShapeNode *circle = [SKShapeNode shapeNodeWithCircleOfRadius:self.cellSize / 2.8];
+    SKSpriteNode *circle = [SKSpriteNode spriteNodeWithTexture:self.nodeTexture];
     circle.position = pt;
-    circle.strokeColor = [SKColor blueColor];
-    circle.fillColor =[SKColor greenColor];
     [self.canvas addChild:circle];
 }
 
